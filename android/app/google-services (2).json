@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "928890966003",
+    "project_id": "blissver2",
+    "storage_bucket": "blissver2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928890966003:android:330643ad0fcb581bf44c86",
+        "android_client_info": {
+          "package_name": "com.example.blissver2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928890966003-4oeg3kfc103tghmseehuo7o75n18vpil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blissver2",
+            "certificate_hash": "de9cba14ccb967cb7c8e54c1c8dbef2591a416ab"
+          }
+        },
+        {
+          "client_id": "928890966003-7slo1t8i3djnhhoh5bp8sccm8a06qul5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCES3GOoJWzocfYgWNJZ2sxZXMn1ynsB2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928890966003-7slo1t8i3djnhhoh5bp8sccm8a06qul5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
