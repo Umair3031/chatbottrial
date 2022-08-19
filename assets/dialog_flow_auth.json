@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sam-bliss-chatbot-lreo",
+  "private_key_id": "9e0d99af21de73e09954c856e6fd6b0ff800b789",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDO3T8WB4hddrHk\na5SOCcsKiSTLoV4ILod7XuURsMGMio0AGfCU8aegq4xLczFYrYzEIrv8eDRKsWFO\nK2l814DQT/+zhHqOEaEirJNwAG70UV4QSLHQ1yHW4aHCnBTETgYz862P2ag/VlsP\nTUONzRBlSkSRUEMOta0oO+69C8sCosHwPc50RpcFN8eOjgDDXpzsdW0mBnC4/b7l\n/ec33R8f9OXh6Zd3zzFZcKKe1aIPa3YocGVk0N9rdgo95Us02X/l0J5HEd+62BlQ\nXoEPQI0lAHEE5rNIAe7WL71Rysr1e+9kWQ8Y3Zf0heeYLLbYxkNXa1m2IzRX2B7n\nsTKxmt/7AgMBAAECggEAGpGiufrwXMYTRbnmM/K2DVMH/XoVpbS0L02aMOd5icon\nH02K74EKJ+y18YreBPxlXrDyDBSJmCj9d8NuTQaGGOXteuptAzToc+z5Es2Qx/hw\nvblYfUY5pmuxvFkSTGmTtQslzkVaV/2IvIe5QXaGazwFX9SQiEx1QlGlnB+Y92wi\nPeV9kZscvjIg9IX5ly6NVf0eBzi69Dc/30KAqZT/4NGTczcbidgla5RfMao3jkgi\n4tNiVpxsgmD89+fptqLBpl1QaPB+r1d42IYFhVjyAdpNCb+oQNXZPG9Gxg68ydao\nnRD/S2WLjl0aTInSKlZBYW6yhKRaxOmY1CUrd1gwIQKBgQDwlnArEj+an0NYn+x7\nBui//LznjRXsI5MKHMkhrn20aC9ycVsLcLQNcnPyBMalw/PcMfZw1HsmemAL2Pvi\n3xU9Da6e+XkVUo0huEuStGurPAVM7t4NYvQ6q9ikM1LrQOJU9IKBQinn5EHIZQhK\nm2aEggnWkmPrpuUP5PMTBgjlbwKBgQDcHcFJTjeymIQXdqwfgwkWvvwUaJmChv6i\na8jyv6ks++8rhKxuO/QxX6dTg+pKQnlkBUomixnQf3TSh/Y2iqv2VJ23QZDvZSU1\nUCulTPgZvsH/WFq+dC0RZ4Q3Fhv6sfDBIZDV4uHd7gVUEblyj5lgmhe146uDSi50\nLHMdoIKgNQKBgQCOfZsbd2hiTJdXgwhNaS8qnibHwUDNpdgtchURtMXQtq/7SPXS\nVcLd//55xahdfywMKy85bi8t/+aova+Zk+SBT3wvvbOgFE9wPDXOQrtOJHNDOGod\nZZEeuq7JuXgPy1MBW/t7UNN++yqW5He/sEBMlLP8+KDjbepWupPYnYdhUwKBgAsM\ny1k8vfsPQQJUiMuELn6f09PKdHpjAIFy28Gj8YA6nYUXwfg+tkGMRcAhjS9xKtrk\nkRZiQUeAPoMbJDcUuxFAqjI67mW2NCn6/lXsCUBxnReOfe+1sVWAVtjVGU56hFWN\ns9Go9CHKAyZ3RVIE93QsCCivZzrODIr0eEryddxJAoGBAJTON3dCfvMBxYdsHbC4\nhT0B3/pHsgrU6A5yNkPqsk6Hege4WdVP4tGtQ1Kj4YO8K0qVRCt1d0zl8sX3+NTq\nAqMLohW8v3CIf5npEh4zYw7VaHIkb7WCVbncKbeQA8lsM1btMCLf1clut51mLEo0\nFpZqlFBg/q+XwE7kmzeQmfYt\n-----END PRIVATE KEY-----\n",
+  "client_email": "blissbot@sam-bliss-chatbot-lreo.iam.gserviceaccount.com",
+  "client_id": "117941213325758891348",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/blissbot%40sam-bliss-chatbot-lreo.iam.gserviceaccount.com"
+}

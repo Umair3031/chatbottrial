@@ -1,7 +1,7 @@
 
+import 'package:blissver2/bot/home_bot.dart';
 import 'package:blissver2/screens/Drawers/contacts.dart';
 import 'package:blissver2/screens/Drawers/dashboard.dart';
-import 'package:blissver2/screens/Drawers/events.dart';
 import 'package:blissver2/screens/Drawers/my_drawer_header.dart';
 import 'package:blissver2/screens/Drawers/notes.dart';
 import 'package:blissver2/screens/Drawers/notifications.dart';
@@ -33,11 +33,7 @@ class _HomePageState extends State<HomePage> {
     var container;
     if (currentPage == DrawerSections.dashboard) {
       container = DashboardPage();
-    } else if (currentPage == DrawerSections.contacts) {
-      container = ContactsPage();
-    } else if (currentPage == DrawerSections.events) {
-      container = EventsPage();
-    } else if (currentPage == DrawerSections.notes) {
+    }  else if (currentPage == DrawerSections.notes) {
       container = NotesPage();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
@@ -61,27 +57,17 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(32),
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Hi,current user',
-                 style: const TextStyle(
-                  color: Colors.blue,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height: 8),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'How do you feel ?',
+                    'How do you feel today,User?',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 18,
@@ -107,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                       onTap: (){
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const LoginPage())
+                          context,MaterialPageRoute(builder: (context) => const HomeBot())
                         );  
                         Container(decoration: BoxDecoration(color: Colors.blue[600],borderRadius: BorderRadius.circular(12),),
                         );
@@ -131,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                       onTap: (){
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomePage())
+                          context,MaterialPageRoute(builder: (context) => const HomeBot())
                         );  
                       },
                       child: EmoticonFace(emoticonface: '🙂'),
@@ -152,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                       onTap: (){
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomePage())
+                          context,MaterialPageRoute(builder: (context) => const HomeBot())
                         );  
                       },
                       child: EmoticonFace(emoticonface: '😄'),
@@ -172,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                       onTap: (){
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomePage())
+                          context,MaterialPageRoute(builder: (context) => const HomeBot())
                         );  
                       },
                       child: EmoticonFace(emoticonface: '🤩'),
@@ -220,6 +206,8 @@ class _HomePageState extends State<HomePage> {
       // btoom bar
 
       bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.white,
+        // color: Colors.blue,
         animationDuration: Duration(milliseconds: 400),
         onTap: (index) {
           if (index==1){
@@ -228,7 +216,7 @@ class _HomePageState extends State<HomePage> {
           }
           else if (index == 2){
             Navigator.push(
-              context,MaterialPageRoute(builder: (context) => EventsPage()));
+              context,MaterialPageRoute(builder: (context) => DashboardPage()));
           }
           else if (index == 3){
             Navigator.push(
