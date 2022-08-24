@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class Signupscreen extends StatefulWidget {
   const Signupscreen({Key? key}) : super(key: key);
 
@@ -33,11 +34,23 @@ class _SignupscreenState extends State<Signupscreen> {
 
   Future signUp() async {
     if(passwordConfirmed()){
+      try{
 
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailcontroller.text.trim(),
         password: _passwordcontroller.text.trim(),
       );
+       } on FirebaseAuthException catch (e) {
+        print(e);
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          },
+        );
+      }
 
       addUserDetails(
         _firstnamecontroller.text.trim(),

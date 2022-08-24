@@ -12,7 +12,7 @@ class EmoticonFace extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blue[600],
+        color: Colors.teal[600],
         borderRadius: BorderRadius.circular(12),
       ),
       padding: EdgeInsets.all(16),

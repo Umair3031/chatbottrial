@@ -5,6 +5,7 @@ import 'package:blissver2/screens/signupscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,23 +17,42 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
    final _emailcontroller = TextEditingController();
    final _passwordcontroller = TextEditingController();
+   bool isPwdVis = true;
 
    Future signIn() async {
-    showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()),
-    );
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailcontroller.text.trim(),
-      password: _passwordcontroller.text.trim()
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailcontroller.text.trim(),
+        password: _passwordcontroller.text.trim(),
+      );
+    } on FirebaseException catch (e) {
+      print(e);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.message.toString()),
+          );
+        },
+      );
+    }
     Navigator.push(
       context,MaterialPageRoute(builder: (context) => HomePage()));
-   }
+  }
+    
+  
+
+  @override
+  void initState() { 
+    super.initState();
+    _emailcontroller.addListener(() => setState(() {}));
+    _passwordcontroller.addListener(() => setState(() {}));
+  }
 
    @override
    void dispose(){
     _emailcontroller.dispose();
     _passwordcontroller.dispose();
-
     super.dispose();
    }
 
@@ -70,21 +90,26 @@ class _LoginPageState extends State<LoginPage> {
                 //email textfield
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: TextField(
+                  child: TextFormField(
+                    autofillHints: [AutofillHints.email],
                     controller: _emailcontroller,
+                    textInputAction: TextInputAction.next,
+                    validator: (email) => 
+                      email != null && !EmailValidator.validate(email)
+                      ? 'Enter a valid email' : null,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.teal),
+                        borderSide: BorderSide(color: Colors.lightBlue),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       hintText: 'Email',
                       fillColor: Colors.grey[200],
                       filled: true,
-                      // prefixIcon: Icon(Icons.email),
+                      prefixIcon: Icon(Icons.mail),
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -97,23 +122,33 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
                     controller: _passwordcontroller,
-                    obscureText: true,
+                    autofillHints: [AutofillHints.password],
+                    
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.key),
+                      suffixIcon:  _passwordcontroller.text.isEmpty
+                          ? Container(width: 0): IconButton(
+                            icon: isPwdVis
+                              ? Icon(Icons.visibility_off)
+                              : Icon(Icons.visibility),
+                            onPressed: () => setState(() => isPwdVis = !isPwdVis),
+                          ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.teal),
+                        borderSide: BorderSide(color: Colors.lightBlue),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       hintText: 'Password',
                       fillColor: Colors.grey[200],
                       filled: true,
                     ),
+                    obscureText: isPwdVis,
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 13),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -152,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.teal,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Sign In',
                           style: TextStyle(

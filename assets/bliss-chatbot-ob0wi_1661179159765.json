@@ -1,0 +1,40 @@
+{
+	"intents": [
+		{
+			"content": [
+				{
+					"message": "Greetings! I'm Bliss Chatbot. I'm here to analyze your overall mood and generate a report based on the question that i'm going to ask. If you are ready to proceed kindly reply with 'I'm ready'"
+				},
+				{
+					"message": "",
+					"platform": "kommunicate",
+					"metadata": {
+						"contentType": "300",
+						"templateId": "11",
+						"payload": [
+							{
+								"name": "I'm ready ",
+								"action": {
+									"type": "quickReply",
+									"message": "ok"
+								}
+							},
+							{
+								"name": "Exit Bot",
+								"action": {
+									"type": "quickReply",
+									"message": "Thank you ! Kindly Visit again"
+								}
+							}
+						]
+					}
+				}
+			],
+			"urlPatternList": [],
+			"category": "welcome_event",
+			"name": "Default Welcome Intent",
+			"trainingPhrases": []
+		}
+	],
+	"webhooks": {}
+}

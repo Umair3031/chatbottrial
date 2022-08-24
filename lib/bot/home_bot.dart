@@ -1,6 +1,7 @@
 import 'package:blissver2/bot/Messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 
 class HomeBot extends StatefulWidget {
@@ -13,6 +14,15 @@ class HomeBot extends StatefulWidget {
 class _HomeBotState extends State<HomeBot> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
+  final QueryInput queryInput = QueryInput(
+      text: TextInput(
+        text: "Hi. How are you?",
+        languageCode: "en",
+      ),
+    );
+    // DetectIntentResponse response = await dialogFlowtter.detectIntent(
+    //   queryInput: queryInput,
+    // );
 
   List<Map<String, dynamic>> messages = [];
 
@@ -42,8 +52,14 @@ class _HomeBotState extends State<HomeBot> {
                     controller: _controller,
                     style: TextStyle(color: Colors.white),
                   )),
+                  
                   IconButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        // print('Hello');
+                        // print(_controller.text);
+                        // String tempStr = _controller.text;
+                        // tempStr = "Hello" + tempStr;
+                        // _controller.text = tempStr;
                         sendMessage(_controller.text);
                         _controller.clear();
                       },
@@ -59,16 +75,19 @@ class _HomeBotState extends State<HomeBot> {
 
   sendMessage(String text) async {
     if (text.isEmpty) {
+      print("text is empty");
       print('Please type enter your response!');
     } else {
+      print(text);
       setState(() {
         addMessage(Message(text: DialogText(text: [text])), true);
       });
 
       DetectIntentResponse response = await dialogFlowtter.detectIntent(
           queryInput: QueryInput(text: TextInput(text: text)));
-      if (response.message == null) return;
+      if (response.message == null) { print("null"); return; }
       setState(() {
+        print("calling add message");
         addMessage(response.message!);
       });
     }
