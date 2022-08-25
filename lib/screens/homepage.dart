@@ -8,7 +8,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:kommunicate_flutter/kommunicate_flutter.dart';
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -106,11 +107,16 @@ class _HomePageState extends State<HomePage> {
                       
                       GestureDetector(
                       onTap: (){
-                        Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomeBot())
-                        );  
-                        Container(decoration: BoxDecoration(color: Colors.teal[600],borderRadius: BorderRadius.circular(12),),
-                        );
+                        dynamic conversationObject = {
+                              'appId': '3b06c9af61b62bc935e641edea085fdb2',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                              'isSingleConversation' : false
+                            };
+
+                            KommunicateFlutterPlugin.buildConversation(conversationObject).then((clientConversationId) {
+                              print("Conversation builder success : " + clientConversationId.toString());
+                            }).catchError((error) {
+                              print("Conversation builder error : " + error.toString());
+                            });
                       },
                       
                       child: EmoticonFace(emoticonface: '😩'),
@@ -133,9 +139,16 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       GestureDetector(
                       onTap: (){
-                        Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomeBot())
-                        );  
+                            dynamic conversationObject = {
+                              'appId': '3b06c9af61b62bc935e641edea085fdb2',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                              'isSingleConversation' : false
+                            };
+
+                            KommunicateFlutterPlugin.buildConversation(conversationObject).then((clientConversationId) {
+                              print("Conversation builder success : " + clientConversationId.toString());
+                            }).catchError((error) {
+                              print("Conversation builder error : " + error.toString());
+                            });
                       },
                       child: EmoticonFace(emoticonface: '🙂'),
                       ),
@@ -157,9 +170,16 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       GestureDetector(
                       onTap: (){
-                        Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomeBot())
-                        );  
+                        dynamic conversationObject = {
+                              'appId': '3b06c9af61b62bc935e641edea085fdb2',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                              'isSingleConversation' : false
+                            };
+
+                            KommunicateFlutterPlugin.buildConversation(conversationObject).then((clientConversationId) {
+                              print("Conversation builder success : " + clientConversationId.toString());
+                            }).catchError((error) {
+                              print("Conversation builder error : " + error.toString());
+                            });
                       },
                       child: EmoticonFace(emoticonface: '😄'),
                       ),
@@ -180,9 +200,16 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       GestureDetector(
                       onTap: () async {
-                        Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HomeBot())
-                        ); 
+                        dynamic conversationObject = {
+                              'appId': '3b06c9af61b62bc935e641edea085fdb2',// The [APP_ID](https://dashboard.kommunicate.io/settings/install) obtained from kommunicate dashboard.
+                              'isSingleConversation' : false
+                            };
+
+                            KommunicateFlutterPlugin.buildConversation(conversationObject).then((clientConversationId) {
+                              print("Conversation builder success : " + clientConversationId.toString());
+                            }).catchError((error) {
+                              print("Conversation builder error : " + error.toString());
+                            }); 
                       },
                       child: EmoticonFace(emoticonface: '🤩'),
                       ),

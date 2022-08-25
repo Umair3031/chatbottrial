@@ -9,9 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       apiKey: "AIzaSyCES3GOoJWzocfYgWNJZ2sxZXMn1ynsB2Y", 
-      appId: "1:928890966003:android:330643ad0fcb581bf44c86",   
+      appId: "1:928890966003:android:330643ad0fcb581bf44c86",    
       messagingSenderId: "928890966003", 
       projectId: "blissver2",
     ), 
